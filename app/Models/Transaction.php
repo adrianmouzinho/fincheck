@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\TransactionTypeEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -17,6 +18,10 @@ class Transaction extends Model
         'name',
         'value',
         'type'
+    ];
+
+    protected $casts = [
+        'type' => TransactionTypeEnum::class
     ];
 
     public function user(): BelongsTo
